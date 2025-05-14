@@ -1,20 +1,14 @@
-import { Button } from "./components/ui/button";
+import { useState } from "react";
+import SearchForm from "./components/form/SearchForm";
+import UserProfile from "./components/user/userProfile";
 
 const App = () => {
+  const [username, setUsername] = useState<string>("quincylaron");
   return (
-    <div>
-      <h1 className="flex items-center justify-center h-screen">
-        <div className="flex gap-4">
-          <Button>Click Me</Button>
-          <Button variant="outline" size="lg">
-            Click Me
-          </Button>
-          <Button variant="destructive" size="sm">
-            Click Me
-          </Button>
-        </div>
-      </h1>
-    </div>
+    <main className="mx-auto max-w-6xl px-8 py-20">
+      <SearchForm userName={username} setUsername={setUsername} />
+      <UserProfile userName={username} />
+    </main>
   );
 };
 
